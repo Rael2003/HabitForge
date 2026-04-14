@@ -26,4 +26,12 @@ public class MainActivity extends AppCompatActivity {
     public void login(View view){
         setContentView(R.layout.activity_main_frame);
     }
+
+    public void goal(View view){
+        setContentView(R.layout.activity_goal);
+    }
+
+    public void objective(View view){
+        setContentView(R.layout.activity_objective);
+    }
 }
