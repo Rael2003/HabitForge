@@ -2,6 +2,7 @@ package com.example.habitforge.data.api
 
 import com.example.habitforge.model.LoginRequest
 import com.example.habitforge.model.Meta
+import com.example.habitforge.model.Objetivo
 import com.example.habitforge.model.Usuario
 import retrofit2.Call
 import retrofit2.http.Body
@@ -19,4 +20,6 @@ interface ApiService {
 
     @GET("metas/usuario/{id}")
     suspend fun getMetasPorUsuarios(@Path("id") id: Int): List<Meta>
+    @GET("objetivos/usuario/{id}")
+    suspend fun getObjetivosPorUsuarios(@Path("id") id: Int): List<Objetivo>
 }

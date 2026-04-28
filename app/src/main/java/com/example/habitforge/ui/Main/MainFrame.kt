@@ -35,6 +35,7 @@ class MainFrame : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE)
         val usuarioId = sharedPreferences.getInt("usuario_id", -1)
         val containerMetas = findViewById<LinearLayout>(R.id.containerMetas)
+        val containerObjetivo = findViewById<LinearLayout>(R.id.containerObjetivos)
 
         viewModel.meta.observe(this) { metas ->
             metas?.let {
@@ -58,8 +59,30 @@ class MainFrame : AppCompatActivity() {
             }
         }
 
+        viewModel.objetivo.observe(this) { objetivos ->
+            objetivos?.let {
+                println("Carregou objetivos: ${it.size}")
+
+                // Limpa antes para evitar duplicação
+                containerObjetivo.removeAllViews()
+
+                for (obj in objetivos) {
+                    val checkBox = CheckBox(this)
+                    checkBox.text = obj.nome // ou meta.nome dependendo do seu model
+
+                    // Evento ao marcar/desmarcar
+                    checkBox.setOnCheckedChangeListener { _, isChecked ->
+                        println("Meta ${obj.id} alterada para: $isChecked")
+                    }
+
+                    containerObjetivo.addView(checkBox)
+                }
+            }
+        }
+
         if (usuarioId != -1) {
             viewModel.MetaPorUsuario(usuarioId)
+            viewModel.ObjetivoPorUsuario(usuarioId)
         }else{
             startActivity(Intent(this, MainActivity::class.java))
             finish()
