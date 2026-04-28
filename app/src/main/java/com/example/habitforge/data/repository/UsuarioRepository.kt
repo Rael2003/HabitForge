@@ -1,7 +1,7 @@
 package com.example.habitforge.data.repository
 
 import com.example.habitforge.data.api.ApiClient
-import com.example.habitforge.model.LoginRequest
+import com.example.habitforge.model.DTOs.LoginRequest
 import com.example.habitforge.model.Usuario
 
 class UsuarioRepository {
