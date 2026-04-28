@@ -29,14 +29,21 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
         viewModel.usuario.observe(this) { usuario ->
+
+            val sharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE)
+
             usuario?.let {
                 println("Login OK: ${it.id}")
 
+                sharedPreferences.edit()
+                    .putInt("usuario_id", usuario.id)
+                    .apply()
+
                 startActivity(Intent(this, MainFrame::class.java))
+                finish()
             }
         }
 
-        // 👀 observa erro
         viewModel.erro.observe(this) {
             println(it)
         }
