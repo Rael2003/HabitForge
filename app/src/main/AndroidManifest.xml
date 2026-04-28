@@ -13,13 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HabitForge">
         <activity
-            android:name=".ui.Objective"
+            android:name=".ui.Main.Objective"
             android:exported="false" />
         <activity
-            android:name=".ui.Goal"
+            android:name=".ui.Main.Goal"
             android:exported="false" />
         <activity
-            android:name=".ui.MainFrame"
+            android:name=".ui.Main.MainFrame"
             android:exported="false" />
         <activity
             android:name=".ui.login.MainActivity"

@@ -10,15 +10,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.OnApplyWindowInsetsListener
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import com.example.habitforge.R
-import com.example.habitforge.data.repository.UsuarioRepository
-import com.example.habitforge.model.Usuario
-import com.example.habitforge.ui.Goal
-import com.example.habitforge.ui.MainFrame
-import com.example.habitforge.ui.Objective
+import com.example.habitforge.ui.Main.Goal
+import com.example.habitforge.ui.Main.MainFrame
+import com.example.habitforge.ui.Main.Objective
 
 class MainActivity : AppCompatActivity() {
 

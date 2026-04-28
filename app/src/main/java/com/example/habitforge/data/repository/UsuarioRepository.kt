@@ -10,8 +10,6 @@ class UsuarioRepository {
     }
 
     suspend fun login(login: String, senha: String): Usuario {
-        val teste = ApiClient.api.login(LoginRequest(login, senha))
-        println(teste)
-        return teste
+        return ApiClient.api.login(LoginRequest(login, senha))
     }
 }

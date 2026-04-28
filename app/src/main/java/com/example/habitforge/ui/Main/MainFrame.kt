@@ -1,4 +1,4 @@
-package com.example.habitforge.ui
+package com.example.habitforge.ui.Main
 
 import android.os.Bundle
 import android.view.View
