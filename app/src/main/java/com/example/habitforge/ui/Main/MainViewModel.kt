@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.habitforge.data.repository.MetaRepository
 import com.example.habitforge.data.repository.ObjetivoRepository
 import com.example.habitforge.data.repository.UsuarioRepository
+import com.example.habitforge.model.DTOs.ObjetivoDTO
 import com.example.habitforge.model.Meta
 import com.example.habitforge.model.Objetivo
 import kotlinx.coroutines.launch
@@ -43,7 +44,19 @@ class MainViewModel:ViewModel() {
                 _objetivo.value = response
             } catch (e: Exception) {
                 println(e.toString())
-                _erro.value = "Não há meta"
+                _erro.value = "Não há objetivo"
+            }
+        }
+    }
+
+    fun confirmarObjetivo(nome: String, valor: Float, id:Int ){
+        viewModelScope.launch {
+            try {
+                val obj = ObjetivoDTO(0,nome,valor, id)
+                objetivorepository.postObjetivo(obj)
+            }catch (e: Exception){
+                println(e.toString())
+                _erro.value = "Não funfo"
             }
         }
     }

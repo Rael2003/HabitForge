@@ -1,5 +1,6 @@
 package com.example.habitforge.data.api
 
+import com.example.habitforge.model.DTOs.ObjetivoDTO
 import com.example.habitforge.model.LoginRequest
 import com.example.habitforge.model.Meta
 import com.example.habitforge.model.Objetivo
@@ -22,4 +23,6 @@ interface ApiService {
     suspend fun getMetasPorUsuarios(@Path("id") id: Int): List<Meta>
     @GET("objetivos/usuario/{id}")
     suspend fun getObjetivosPorUsuarios(@Path("id") id: Int): List<Objetivo>
+    @POST("objetivos")
+    suspend fun postObjetivos(@Body request: ObjetivoDTO)
 }
